@@ -1,0 +1,33 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: wl-antrea-test
+  namespace: test-ns-2
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+      - 100.96.0.0/11
+    serviceDomain: cluster.local
+    services:
+      cidrBlocks:
+      - 100.64.0.0/13
+  topology:
+    class: builtin-generic-v3.2.0
+    controlPlane:
+      metadata: &id001
+        annotations:
+          run.tanzu.vmware.com/resolve-os-image: os-name=photon
+      replicas: 1
+    variables:
+    - name: vmClass
+      value: best-effort-small
+    - name: storageClass
+      value: vm-encryption-policy
+    version: v1.31.1+vmware.2-fips-vkr.2
+    workers:
+      machineDeployments:
+      - class: node-pool
+        metadata: *id001
+        name: node-pool-1
+        replicas: 1
