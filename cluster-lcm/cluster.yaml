@@ -23,7 +23,7 @@ spec:
     - name: vmClass
       value: best-effort-small
     - name: storageClass
-      value: vm-encryption-policy
+      value: worker-storagepolicy
     version: v1.31.1+vmware.2-fips-vkr.2
     workers:
       machineDeployments:
