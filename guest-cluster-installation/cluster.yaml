@@ -1,0 +1,39 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: argocd-test-gc
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+      - 100.96.0.0/11
+    serviceDomain: cluster.local
+    services:
+      cidrBlocks:
+      - 100.64.0.0/13
+  topology:
+    class: builtin-generic-v3.3.0
+    controlPlane:
+      metadata:
+        annotations:
+          run.tanzu.vmware.com/resolve-os-image: os-name=photon
+      replicas: 1
+    variables:
+    - name: vmClass
+      value: best-effort-large
+    - name: storageClass
+      value: wcpglobal-storage-profile
+    - name: kubernetes
+      value:
+        certificateRotation:
+          enabled: true
+          renewalDaysBeforeExpiry: 90
+    version: v1.32.0+vmware.6-fips-vkr.2
+    workers:
+      machineDeployments:
+      - class: node-pool
+        metadata:
+          annotations:
+            run.tanzu.vmware.com/resolve-os-image: os-name=photon
+        name: node-pool-1
+        replicas: 1
