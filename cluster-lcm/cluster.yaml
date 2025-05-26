@@ -36,4 +36,4 @@ spec:
           annotations:
             run.tanzu.vmware.com/resolve-os-image: os-name=photon
         name: node-pool-1
-        replicas: 2
+        replicas: 3
