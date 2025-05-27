@@ -4,7 +4,7 @@ metadata:
   name:      test-vm1
 spec:
   className:    best-effort-large
-  imageName:    ob-24537963-photon-5-amd64-v1.32.0---vmware.6-fips-vkr.2 
+  imageName:    photon-5-amd64-v1.32.0---vmware.6-fips-vkr.2 
   storageClass: wcpglobal-storage-profile
   bootstrap: #
     cloudInit:
