@@ -17,7 +17,7 @@ spec:
       metadata:
         annotations:
           run.tanzu.vmware.com/resolve-os-image: os-name=photon
-      replicas: 3
+      replicas: 1
     variables:
     - name: vmClass
       value: best-effort-large
