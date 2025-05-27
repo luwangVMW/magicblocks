@@ -1,4 +1,4 @@
-apiVersion: cluster.x-k8s.io/v1beta1
+1apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
   name: argocd-vks-demo
@@ -36,4 +36,4 @@ spec:
           annotations:
             run.tanzu.vmware.com/resolve-os-image: os-name=photon
         name: node-pool-1
-        replicas: 2
+        replicas: 1
