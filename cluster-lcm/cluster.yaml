@@ -20,7 +20,7 @@ spec:
       replicas: 1
     variables:
     - name: vmClass
-      value: best-effort-large
+      value: best-effort-medium
     - name: storageClass
       value: wcpglobal-storage-profile
     - name: kubernetes
