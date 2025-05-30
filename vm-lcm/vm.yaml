@@ -5,7 +5,7 @@ metadata:
 spec:
   className:    best-effort-xlarge
   imageName:    photon-5-amd64-v1.32.0---vmware.6-fips-vkr.2 
-  storageClass: wcpglobal-storage-profile
+  storageClass: worker-storagepolicy
   bootstrap: #
     cloudInit:
       cloudConfig: {}
