@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vmsvc-vm-pvc
+  labels:
+    app: app-template
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 25Gi
+  storageClassName: worker-storagepolicy
+---
+apiVersion: vmoperator.vmware.com/v1alpha3
+kind: VirtualMachine
+metadata:
+  name: vm-name-1
+  labels:
+    app: app-template
+spec:
+  className: best-effort-small
+  imageName: vmi-db97896a2a79057eb
+  powerState: PoweredOn
+  storageClass: worker-storagepolicy
+  bootstrap:
+    cloudInit:
+      rawCloudConfig:
+        name: secret-name
+        key: user-data
+  volumes:
+   - name: vmsvc-vm-pvc
+     persistentVolumeClaim:
+        claimName: vmsvc-vm-pvc
+        readOnly: false
+--- 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-name
+stringData:
+  user-data: |
+    #cloud-config
+    repo_update: true
+    repo_upgrade: all
+ 
+    password: VMWARE
+    ssh_pwauth: true
+ 
+    users:
+    - name: vmware
+      sudo: ALL=(ALL) NOPASSWD:ALL
+      lock_passwd: false
+      # Password set to VMuno!23
+      passwd: '$5$1SX7BjP5Mc6AB$sxKzSEVN2tbI3HeasygCo4lUEtJ.iY8dmqW6hZKvUW3'
+      shell: /bin/bash
