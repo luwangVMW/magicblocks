@@ -1,0 +1,39 @@
+
+{{range $i, $e := until (atoi (printf "%d" (int64 .Values.count)))}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ $.Release.Name }}-{{ $i }}
+  labels:
+    app: {{ $.Release.Name }}-{{ $i }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: wcp-policy
+---
+apiVersion: vmoperator.vmware.com/v1alpha3
+kind: VirtualMachine
+metadata:
+  name: {{ $.Release.Name }}-{{ $i }}
+  labels:
+    app: {{ $.Release.Name }}-{{ $i }}
+spec:
+  className: best-effort-small
+  imageName: {{ $.Values.vmid }}
+  powerState: PoweredOn
+  storageClass: worker-storagepolicy
+  bootstrap:
+    cloudInit:
+      rawCloudConfig:
+        name: secret-name
+        key: user-data
+  volumes:
+   - name: {{ $.Release.Name }}-{{ $i }}
+     persistentVolumeClaim:
+        claimName: {{ $.Release.Name }}-{{ $i }}
+        readOnly: false
+---
+{{ end }}
