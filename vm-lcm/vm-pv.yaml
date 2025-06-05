@@ -32,7 +32,6 @@ spec:
    - name: vmsvc-vm-pvc
      persistentVolumeClaim:
         claimName: vmsvc-vm-pvc
-        readOnly: false
 --- 
 apiVersion: v1
 kind: Secret
