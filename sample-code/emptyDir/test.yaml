@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-container
+        image: vsphere-docker-virtual.usw5.packages.broadcom.com/vkd/dev-productivity/my-go-app:v2
+        volumeMounts:
+        - mountPath: /data/folder11
+          name: my-volume1
+        - mountPath: /data/folder12
+          name: my-volume2
+        - mountPath: /tmp1
+          name: my-volume3
+        resources:
+          limits:
+            ephemeral-storage: 2Gi
+      volumes:
+      - name: my-volume1
+        emptyDir: {}
+      - name: my-volume2
+        emptyDir: 
+          sizeLimit: 1Gi
+      - name: my-volume3
+        emptyDir:
+          sizeLimit: 1Gi

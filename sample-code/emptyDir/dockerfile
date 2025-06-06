@@ -1,0 +1,27 @@
+# Step 1: Use the official Golang image to build the application
+FROM golang:1.23 AS builder
+
+# Step 2: Set the working directory inside the container
+WORKDIR /app
+
+# Step 3: Copy the Go modules and download dependencies
+#COPY go.mod  ./
+#RUN go mod download
+
+# Step 4: Copy the rest of the application code
+COPY . .
+
+# Step 5: Build the Go application
+RUN go build -o myapp .
+
+# Step 6: Use a minimal base image to run the application
+FROM alpine:latest
+
+# Step 7: Set the working directory for the runtime container
+WORKDIR /root/
+
+# Step 8: Copy the compiled binary from the builder stage
+COPY --from=builder /app/myapp .
+
+# Step 9: Specify the command to run the application
+CMD ["./myapp"]
