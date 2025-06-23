@@ -20,7 +20,7 @@ metadata:
     app: app-template
 spec:
   className: best-effort-small
-  imageName: vmi-1368cd13154ef862c
+  imageName: vmi-dd7569e21190eda2a
   powerState: PoweredOn
   storageClass: worker-storagepolicy
   bootstrap:
