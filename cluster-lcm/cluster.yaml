@@ -23,11 +23,6 @@ spec:
       value: best-effort-medium
     - name: storageClass
       value: worker-storagepolicy
-    - name: kubernetes
-      value:
-        certificateRotation:
-          enabled: true
-          renewalDaysBeforeExpiry: 90
     version: v1.32.0+vmware.6-fips-vkr.2
     workers:
       machineDeployments:
