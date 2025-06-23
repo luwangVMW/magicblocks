@@ -12,7 +12,7 @@ spec:
       cidrBlocks:
       - 100.64.0.0/13
   topology:
-    class: builtin-generic-v3.3.0
+    class: tanzukubernetescluster
     controlPlane:
       metadata:
         annotations:
