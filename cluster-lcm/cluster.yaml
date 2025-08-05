@@ -23,7 +23,7 @@ spec:
       value: best-effort-medium
     - name: storageClass
       value: worker-storagepolicy
-    version: v1.32.0+vmware.6-fips-vkr.2
+    version: v1.33.1+vmware.1-fips-vkr.2
     workers:
       machineDeployments:
       - class: node-pool
