@@ -42,6 +42,7 @@ stringData:
     #cloud-config
     repo_update: true
     repo_upgrade: all
+    # test
  
     password: VMWARE
     ssh_pwauth: true
