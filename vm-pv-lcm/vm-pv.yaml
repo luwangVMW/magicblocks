@@ -44,7 +44,7 @@ stringData:
     repo_upgrade: all
     # test2
  
-    password: VMWARE
+    password: vmware
     ssh_pwauth: true
  
     users:
