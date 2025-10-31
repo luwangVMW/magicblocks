@@ -12,7 +12,7 @@ spec:
       storage: 25Gi
   storageClassName: worker-storagepolicy
 ---
-apiVersion: vmoperator.vmware.com/v1alpha3
+apiVersion: vmoperator.vmware.com/v1alpha2
 kind: VirtualMachine
 metadata:
   name: vm-name-1
