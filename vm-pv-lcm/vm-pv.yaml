@@ -19,7 +19,7 @@ metadata:
   labels:
     app: app-template
 spec:
-  className: best-effort-small
+  className: best-effort-large
   imageName: vmi-58b26ac3059ba203b
   powerState: PoweredOn
   storageClass: worker-storagepolicy
@@ -44,7 +44,7 @@ stringData:
     repo_upgrade: all
     # test2
  
-    password: vmware
+    password: vmware111
     ssh_pwauth: true
  
     users:
