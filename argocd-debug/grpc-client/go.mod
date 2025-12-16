@@ -1,4 +1,4 @@
-module github.com/argoproj/argo-cd/v3/examples/grpc-client
+module github.com/luwangVMW/magicblocks/argocd-debug/grpc-client
 
 go 1.25.0
 
@@ -19,6 +19,3 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20251022142026-3a174f9686a8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251022142026-3a174f9686a8 // indirect
 )
-
-// Use local argo-cd module
-replace github.com/argoproj/argo-cd/v3 => ../..
