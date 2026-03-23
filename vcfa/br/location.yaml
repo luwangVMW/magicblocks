@@ -1,3 +1,4 @@
+apiVersion: dataprotection.management.kubernetes.vmware.com/v1alpha1
 kind: ClusterBackupLocation
 metadata:
   labels:
