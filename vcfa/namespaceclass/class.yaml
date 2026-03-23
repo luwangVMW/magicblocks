@@ -1,0 +1,6 @@
+apiVersion: infrastructure.cci.vmware.com/v1alpha2
+kind: SupervisorNamespaceClass
+metadata:
+  name: test-namespaceclass-1
+spec:
+  description: Supervisor supervisor namespace class
