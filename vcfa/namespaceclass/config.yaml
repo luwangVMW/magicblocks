@@ -11,7 +11,7 @@ spec:
   contentSources: []
   zones:
     - name: '*'
-      cpuLimit: 2000M
+      cpuLimit: 1000M
       cpuReservation: 0M
-      memoryLimit: 2024Mi
+      memoryLimit: 1024Mi
       memoryReservation: 0Mi
