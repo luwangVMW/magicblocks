@@ -1,0 +1,6 @@
+apiVersion: project.cci.vmware.com/v1alpha2
+kind: Project
+metadata:
+  name: project-test
+spec:
+  description: This is a demo project
