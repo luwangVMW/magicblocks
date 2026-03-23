@@ -1,0 +1,28 @@
+kind: ClusterBackupLocation
+metadata:
+  labels:
+    aaaa: cccc
+    bbbb: dddd
+    gggg: ffffe
+  name: minio-bs20
+  namespace: '@org'
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  awsS3Config:
+    caCerts: ""
+    publicUrl: http://10.192.21.68:9000
+    s3Url: http://10.192.21.68:9000
+    s3ForcePathStyle: true
+  bucket: velero
+  clusterRefs:
+    - name: vks-test
+      namespace: vks-project-ns-w27rj
+      selector:
+        matchNames:
+          cluster: vks-test
+          supervisorNamespace: vks-project-ns-w27rj
+  credentialRef:
+    name: yyyy
+  region: us-east2
+  targetProvider: AWS_S3
