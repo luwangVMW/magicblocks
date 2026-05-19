@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-test-ns-1-pspbb
+spec:
+  destination:
+    name: test-ns-1-pspbb
+    namespace: test-ns-1-pspbb
+  project: default
+  source:
+    path: guestbook
+    repoURL: https://github.com/luwangVMW/magicblocks.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
