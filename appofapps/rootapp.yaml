@@ -4,8 +4,8 @@ metadata:
   name: app-of-apps
 spec:
   destination:
-    name: test
-    namespace: test
+    name: vks-project-ns-lml9d
+    namespace: vks-project-ns-lml9d
   project: default
   source:
     path: guestbook
