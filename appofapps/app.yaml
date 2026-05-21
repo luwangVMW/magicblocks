@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-test-ns-1-pspbb
+spec:
+  destination:
+    server: https://kubernetes.default.svc/?context=test-ns-2-z76w5
+    namespace: test-ns-2-z76w5
+  project: default
+  source:
+    path: guestbook
+    repoURL: https://github.com/luwangVMW/magicblocks.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
