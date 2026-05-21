@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-test-ns-1-pspbb
+  name: guestbook-in-ns-2
 spec:
   destination:
     name: test-ns-1-pspbb
