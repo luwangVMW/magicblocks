@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-ns-2
+  name: guestbook-in-ns-1
 spec:
   destination:
     server: https://kubernetes.default.svc/?context=test-ns-2-z76w5
