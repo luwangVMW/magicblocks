@@ -5,4 +5,6 @@ workerCount: 1
 clusterClass: builtin-generic-v3.3.0
 vmClass: best-effort-medium
 storageClass: worker-storagepolicy
-krVersion: vv1.34.2+vmware.2-vkr.2
+krVersion: v1.34.2+vmware.2-vkr.2
+osName: ubuntu
+osVersion: 22.04
