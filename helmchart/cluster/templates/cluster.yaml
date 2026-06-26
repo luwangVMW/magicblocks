@@ -23,7 +23,7 @@ spec:
     controlPlane:
       metadata:
         annotations:
-          run.tanzu.vmware.com/resolve-os-image: os-name=photon
+          run.tanzu.vmware.com/resolve-os-image: os-name={{ .Values.osName }}, os-version={{ .Values.osVersion | quote }}
       replicas: {{ .Values.kcpCount }}
     variables:
       - name: vmClass
@@ -41,6 +41,6 @@ spec:
         - class: node-pool
           metadata:
             annotations:
-              run.tanzu.vmware.com/resolve-os-image: os-name=photon
+              run.tanzu.vmware.com/resolve-os-image: os-name={{ .Values.osName }}, os-version={{ .Values.osVersion | quote }}
           name: node-pool-1
           replicas: {{ .Values.workerCount }}
