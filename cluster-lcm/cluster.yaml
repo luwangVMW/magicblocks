@@ -6,10 +6,10 @@ spec:
   clusterNetwork:
     pods:
       cidrBlocks:
-        - 192.168.156.0/20
+        - 100.90.0.0/11
     services:
       cidrBlocks:
-        - 10.96.0.0/12
+        - 100.60.0.0/13
     serviceDomain: cluster.local
   topology:
     classRef:
