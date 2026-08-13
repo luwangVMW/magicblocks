@@ -1,0 +1,12 @@
+apiVersion: argocd-service.vsphere.vmware.com/v1alpha1
+kind: ArgoCD
+metadata:
+  name: argocd-1
+spec:
+  version: 3.4.4+vmware.1-vks.1
+  rbac:
+    scopes: '[groups, email, referred_username, name]'
+    policy: |
+      g, fritz@sqa.vcfa.broadcom.net, role:admin
+      g, bob@sqa.vcfa.broadcom.net, role:admin
+      g, Service Administrator, role:admin
