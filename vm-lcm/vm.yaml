@@ -3,8 +3,8 @@ kind: VirtualMachine
 metadata:
   name:      test-vm1
 spec:
-  className:    best-effort-xlarge
-  imageName:    photon-5-amd64-v1.32.0---vmware.6-fips-vkr.2 
+  className:    best-effort-xsmall
+  imageName:    vmi-7134489cfe37ffca8
   storageClass: worker-storagepolicy
   bootstrap: #
     cloudInit:
