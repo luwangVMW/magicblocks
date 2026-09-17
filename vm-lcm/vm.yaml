@@ -5,7 +5,7 @@ metadata:
 spec:
   className:    best-effort-xsmall
   imageName:    vmi-7134489cfe37ffca8
-  storageClass: wcpglobal_storage_profile
+  storageClass: wcpglobal-storage-profile
   bootstrap: #
     cloudInit:
       cloudConfig: {}
