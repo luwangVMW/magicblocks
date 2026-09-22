@@ -3,7 +3,7 @@ kind: ArgoCD
 metadata:
   name: argocd-1
 spec:
-  version: 3.5.1+vmware.1-vks.1
+  version: 3.5.3+vmware.1-vks.1
   rbac:
     scopes: '[groups, email, referred_username, name]'
     policy: |
