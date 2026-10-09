@@ -1,0 +1,7 @@
+apiVersion: v2
+name: umbrella-oci-test
+version: 0.1.0
+dependencies:
+  - name: test-app
+    version: "0.1.0"
+    repository: "oci://10.162.84.15/lu-test"
