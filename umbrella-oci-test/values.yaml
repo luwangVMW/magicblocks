@@ -1,2 +1,6 @@
 test-app:
   replicaCount: 1
+  image:
+    repository: 10.162.84.15/lu-test/curl
+    tag: latest
+    url: ""

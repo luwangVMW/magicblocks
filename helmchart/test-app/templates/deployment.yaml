@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: curl
+        {{- $img := "" }}
+        {{- if kindIs "map" .Values.image }}
+          {{- if .Values.image.url }}
+            {{- $img = .Values.image.url }}
+          {{- else if .Values.image.repository }}
+            {{- $img = printf "%s:%s" .Values.image.repository (.Values.image.tag | default "latest") }}
+          {{- end }}
+        {{- else if kindIs "string" .Values.image }}
+          {{- $img = .Values.image }}
+        {{- end }}
+        {{- if not $img }}
+          {{- $img = "10.162.84.15/lu-test/curl:latest" }}
+        {{- end }}
+        image: {{ $img | quote }}
+        imagePullPolicy: {{ if kindIs "map" .Values.image }}{{ .Values.image.pullPolicy | default "IfNotPresent" }}{{ else }}"IfNotPresent"{{ end }}
+        command:
+          - sleep
+          - infinity
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
