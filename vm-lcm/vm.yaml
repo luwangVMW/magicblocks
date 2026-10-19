@@ -4,7 +4,7 @@ metadata:
   name:      test-vm1
 spec:
   className:    best-effort-xsmall
-  imageName:    vmi-70bad6e1bd47f6d7c
+  imageName:    vmi-ef0798faba6dc0084 #osimage
   storageClass: wcpglobal-storage-profile
   bootstrap: #
     cloudInit:
