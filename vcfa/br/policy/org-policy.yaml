@@ -1,7 +1,7 @@
 apiVersion: policy.management.kubernetes.vmware.com/v1alpha1
 kind: ClusterPolicy
 metadata:
-  name: my-org-policy
+  name: my-org-policy-2
   namespace: '@org'
 spec:
   clusterPolicySchemaRef:
