@@ -1,0 +1,19 @@
+apiVersion: policy.management.kubernetes.vmware.com/v1alpha1
+kind: ClusterPolicy
+metadata:
+  name: my-org-policy
+  namespace: '@org'
+spec:
+  clusterPolicySchemaRef:
+    name: vksm-require-labels:custom-policy
+    namespace: '@org'
+  input:
+    enforcementAction: warn
+    targetKubernetesResources:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+      - apiGroups: ["apps"]
+        kinds: ["Deployment"]
+    parameters:
+      labels:
+        - key: env3
