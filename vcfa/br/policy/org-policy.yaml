@@ -18,12 +18,20 @@ spec:
       labels:
         - key: env3
 ---
-apiVersion: v1
-kind: ConfigMap
+apiVersion: infrastructure.cci.vmware.com/v1alpha2
+kind: SupervisorNamespaceClassConfig
 metadata:
-  name: game-config
-  namespace: '@org'
-  labels:
-    app: my-game
-data:
-  a: b
+  name: test-class-config
+spec:
+  vmClasses:
+    - name: best-effort-xsmall
+  storageClasses:
+    - name: wcpglobal_storage_profile
+      limit: 1024Mi
+  contentSources: []
+  zones:
+    - name: '*'
+      cpuLimit: 1000M
+      cpuReservation: 0M
+      memoryLimit: 1024Mi
+      memoryReservation: 0Mi
