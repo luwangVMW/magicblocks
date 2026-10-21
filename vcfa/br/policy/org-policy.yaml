@@ -17,8 +17,8 @@ spec:
     parameters:
       labels:
         - key: env3
-  ---
-  apiVersion: v1
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: game-config
