@@ -21,7 +21,7 @@ spec:
 apiVersion: infrastructure.cci.vmware.com/v1alpha2
 kind: SupervisorNamespaceClassConfig
 metadata:
-  name: test-class-config
+  name: test-class-config-new
 spec:
   vmClasses:
     - name: best-effort-xsmall
