@@ -17,3 +17,13 @@ spec:
     parameters:
       labels:
         - key: env3
+  ---
+  apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-config
+  namespace: '@org'
+  labels:
+    app: my-game
+data:
+  a: b
