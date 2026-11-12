@@ -1,18 +1,20 @@
 apiVersion: infrastructure.cci.vmware.com/v1alpha3
 kind: SupervisorNamespace
 metadata:
-  generateName: luwang
-  namespace: project01
+  generateName: tiny-ns
+  namespace: argocd-project
 spec:
   classConfigOverrides:
+    storageClasses:
+    - limit: 10240Mi
+      name: wcpglobal_storage_profile
     zones:
-    - cpuLimit: 10000M
+    - cpuLimit: 5000M
       cpuReservation: 0M
-      memoryLimit: 4000Mi
+      memoryLimit: 5120Mi
       memoryReservation: 0Mi
-      name: domain-c11
-  className: small
+      name: domain-c10
+  className: tiny
   description: ""
-  regionName: region01
-  sharedSubnetNames: []
-  vpcName: region01-default-vpc
+  regionName: argocd
+  vpcName: default-argocd
