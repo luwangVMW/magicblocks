@@ -9,7 +9,7 @@ spec:
     - limit: 10240Mi
       name: wcpglobal_storage_profile
     zones:
-    - cpuLimit: 5000M
+    - cpuLimit: 1000M
       cpuReservation: 0M
       memoryLimit: 5120Mi
       memoryReservation: 0Mi
